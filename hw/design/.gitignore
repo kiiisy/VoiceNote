@@ -1,0 +1,6 @@
+/VoiceNote/*
+!/VoiceNote/VoiceNote.xdc
+
+/ip_repo/*
+/.Xil/*
+/.DS_Store
