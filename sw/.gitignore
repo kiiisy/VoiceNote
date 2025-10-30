@@ -1,0 +1,6 @@
+.DS_Store
+
+/*/zynq_fsbl/.cache/
+/*/zynq_fsbl/.compile_commands/
+/*/zynq_fsbl/build/
+
