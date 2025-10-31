@@ -28,6 +28,19 @@ set_property -dict {PACKAGE_PIN M15 IOSTANDARD LVCMOS33} [get_ports {leds_4bits_
 set_property -dict {PACKAGE_PIN G14 IOSTANDARD LVCMOS33} [get_ports {leds_4bits_tri_o[2]}]
 set_property -dict {PACKAGE_PIN D18 IOSTANDARD LVCMOS33} [get_ports {leds_4bits_tri_o[3]}]
 
+# GPIO(Input)
+set_property -dict {PACKAGE_PIN V13 IOSTANDARD LVCMOS33} [get_ports {GPIO_0_tri_i[0]}]
+set_property -dict {PACKAGE_PIN U17 IOSTANDARD LVCMOS33} [get_ports {GPIO_0_tri_i[1]}]
+
+# GPIO(Output)
+set_property -dict {PACKAGE_PIN T17 IOSTANDARD LVCMOS33} [get_ports {GPIO2_0_tri_o[0]}]
+set_property -dict {PACKAGE_PIN Y17 IOSTANDARD LVCMOS33} [get_ports {GPIO2_0_tri_o[1]}]
+
+# (I2C)
+set_property -dict {PACKAGE_PIN V12 IOSTANDARD LVCMOS33} [get_ports IIC_1_scl_io]
+set_property -dict {PACKAGE_PIN W16 IOSTANDARD LVCMOS33} [get_ports IIC_1_sda_io]
+set_property -dict {PACKAGE_PIN J15 IOSTANDARD LVCMOS33} [get_ports tp_rst]
+
 # SDカード
 #set_property -dict {PACKAGE_PIN M14 IOSTANDARD LVCMOS33} [get_ports {ld[0]}]
 
