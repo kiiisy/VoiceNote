@@ -27,9 +27,14 @@ set(USER_UNDEFINED_SYMBOLS
 
 set(USER_INCLUDE_DIRECTORIES
 "lvgl"
+"lvg/src"
+"lvgl/examples"
+"lvgl/examples/src"
+"lvgl/examples/widgets"
 "gui/hal/include"
 "gui/panel/include"
 "gui/panel/ili9341/include"
+"gui/panel/st7789/include"
 "gui/driver/gpio/include"
 "gui/driver/spi/include"
 "gui/ui/include"
@@ -41,15 +46,19 @@ file(GLOB_RECURSE LVGL_SOURCES
   "lvgl/src/*/*.c"
   "lvgl/src/*/*/*.c"
   "lvgl/src/*/*/*/*.c"
+  "lvgl/examples/widgets/*/*.c"
 )
 
 set(USER_COMPILE_SOURCES
 "main.cpp"
 "gui/ui/src/lvgl_controller.cpp"
 "gui/panel/ili9341/src/ili9341_panel.cpp"
+"gui/panel/st7789/src/st7789_panel.cpp"
 "gui/driver/gpio/src/gpio_ps.cpp"
 "gui/driver/spi/src/spi_ps.cpp"
 "log/src/logger_core.cpp"
+"lvgl/examples/widgets/button/lv_example_button_1.c"
+#&{LVGL_SOURCES}
 )
 
 # -----------------------------------------

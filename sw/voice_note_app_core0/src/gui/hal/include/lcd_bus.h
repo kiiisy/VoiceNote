@@ -53,6 +53,10 @@ public:
         gpio_.WritePin(rst_, level);
     }
 
+    LCD_ALWAYS_INLINE void WaitTxDone() const noexcept { spi_.WaitTxDone(); }
+    LCD_ALWAYS_INLINE void BeginStream() const noexcept { spi_.BeginStream(); }
+    LCD_ALWAYS_INLINE void EndStream() const noexcept { spi_.EndStream(); }
+
 private:
     SpiPs        &spi_;
     GpioPs       &gpio_;

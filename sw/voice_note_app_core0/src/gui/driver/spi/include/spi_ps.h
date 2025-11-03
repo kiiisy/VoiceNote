@@ -17,8 +17,19 @@ public:
 
     explicit SpiPs(const Config &c) : cfg_(c) {}
 
-    int Init();
-    int Transfer(const uint8_t *, uint8_t *, uint32_t);
+    int  Init();
+    int  Transfer(const uint8_t *, uint8_t *, uint32_t);
+    void WaitTxDone() noexcept
+    {
+        while (spi_.IsBusy) {
+        }
+        while (spi_.RemainingBytes != 0U) {
+        }
+        __asm__ volatile("" ::: "memory");
+    }
+
+    void BeginStream() noexcept { XSpiPs_SetSlaveSelect(&spi_, cfg_.slave_select); }
+    void EndStream() noexcept { XSpiPs_SetSlaveSelect(&spi_, 0xF); }
 
 private:
     Config cfg_{};

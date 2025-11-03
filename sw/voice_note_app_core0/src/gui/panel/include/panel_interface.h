@@ -12,6 +12,7 @@ public:
     virtual void Init(const LcdBus &bus)                        = 0;
     virtual void Reset(const LcdBus &bus)                       = 0;
     virtual void SetRotation(const LcdBus &bus, uint8_t madctl) = 0;
+    virtual void SetAddrWindow(const LcdBus &bus, uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1) noexcept = 0;
 
     enum : uint8_t
     {

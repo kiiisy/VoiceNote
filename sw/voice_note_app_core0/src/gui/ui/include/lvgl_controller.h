@@ -1,6 +1,7 @@
 #pragma once
 #include "gpio_ps.h"
 #include "lcd_bus.h"
+#include "panel_interface.h"
 #include <cstdint>
 extern "C" {
 #include "lvgl.h"
@@ -20,7 +21,7 @@ public:
     };
 
     explicit LvglController(const Config &cfg);
-    void Init(LcdBus &bus);  // LVGLへの登録だけ担当
+    void Init(LcdBus &bus, PanelInterface &panel);  // LVGLへの登録だけ担当
     void SetRotation(lv_display_rotation_t rot);
 
     lv_display_t *handle() const { return disp_; }
@@ -30,9 +31,10 @@ private:
     void        FlushImpl(lv_display_t *d, const lv_area_t *a, uint8_t *px);
 
     // 状態
-    Config        cfg_{};
-    LcdBus       *bus_{nullptr};
-    lv_display_t *disp_{nullptr};
+    Config          cfg_{};
+    LcdBus         *bus_{nullptr};
+    lv_display_t   *disp_{nullptr};
+    PanelInterface *panel_{nullptr};
 
     // バッファ（.bss）
     static constexpr size_t kBufBytesMax = 240u * 320u * 2u;
